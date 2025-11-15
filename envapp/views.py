@@ -62,7 +62,7 @@ def register(request):
     if request.method=='POST' and form.is_valid():
         form.save()
         return redirect('loginpage')
-    return render(request,'registration.html',{'form':form})
+    return render(request,'register.html',{'form':form})
 
 def login_user(request):
     form=LoginForm(request,data=request.POST or None)
