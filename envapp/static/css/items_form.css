@@ -1,0 +1,90 @@
+:root{
+--accent: #bc8246;
+--accent-dark: #a06d3a;
+--muted: #666666;
+--bg: #ffffff;
+--text: #0b0b0b;
+--card-shadow: 0 10px 30px rgba(11,11,11,0.08);
+--glass: rgba(255,255,255,0.6);
+}
+
+
+/* Page layout */
+.form-wrapper{
+min-height: 70vh;
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 48px 20px;
+background: linear-gradient(180deg, #fff 0%, #fbf8f5 100%);
+}
+
+
+/* Card */
+.form-card{
+width: 100%;
+max-width: 720px;
+background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.95));
+border-radius: 18px;
+box-shadow: var(--card-shadow);
+padding: 36px;
+display: grid;
+grid-template-columns: 1fr 360px;
+gap: 28px;
+align-items: start;
+overflow: hidden;
+border: 1px solid rgba(0,0,0,0.04);
+}
+
+
+/* Left column: content / form fields stack nicely when narrow */
+.form-card .form-title{
+grid-column: 1 / -1;
+margin: 0 0 6px 0;
+font-size: 22px;
+letter-spacing: 0.2px;
+color: var(--text);
+font-weight: 700;
+}
+
+
+.form-card p.lead{
+margin: 0 0 18px 0;
+color: var(--muted);
+font-size: 14px;
+}
+
+
+/* If your form uses the default Django {{ forms.as_p }} output structure, these styles target the common elements */
+.styled-form{
+grid-column: 1 / 2;
+}
+
+
+.styled-form p{
+margin: 0 0 16px 0;
+}
+
+
+.styled-form label{
+display: block;
+margin-bottom: 8px;
+font-size: 13px;
+color: var(--muted);
+font-weight: 600;
+}
+
+
+.styled-form input[type="text"],
+.styled-form input[type="email"],
+.styled-form input[type="number"],
+.styled-form input[type="file"],
+.styled-form input[type="password"],
+.styled-form select,
+.styled-form textarea{
+width: 100%;
+padding: 12px 14px;
+border-radius: 10px;
+border: 1px solid rgba(0,0,0,0.08);
+background: linear-gradient(180deg, #fff, var(--glass));
+}

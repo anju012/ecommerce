@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/contact.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="contact-section">
+  <div class="contact-container">
+
+    <!-- Left: Info -->
+    <div class="contact-info">
+      <h2>Get in Touch</h2>
+      <p class="intro">
+        We’d love to hear from you! Whether you have a question about our products, need assistance, or just want to share your thoughts — we’re here to help.
+      </p>
+
+      <div class="info-item">
+        <i class="fas fa-map-marker-alt"></i>
+        <div>
+          <h4>Our Address</h4>
+          <p>123 Craft Street, Creative City, India</p>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <i class="fas fa-phone-alt"></i>
+        <div>
+          <h4>Phone</h4>
+          <p>+91 98765 43210</p>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <i class="fas fa-envelope"></i>
+        <div>
+          <h4>Email</h4>
+          <p>support@yourstore.com</p>
+        </div>
+      </div>
+
+      <div class="social-links">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+
+    <!-- Right: Contact Form -->
+    <div class="contact-form">
+      <h2>Send Us a Message</h2>
+      <form method="post">
+        {% csrf_token %}
+        <div class="input-group">
+          <input type="text" name="name" required>
+          <label>Your Name</label>
+        </div>
+
+        <div class="input-group">
+          <input type="email" name="email" required>
+          <label>Your Email</label>
+        </div>
+
+        <div class="input-group">
+          <textarea name="message" rows="5" required></textarea>
+          <label>Your Message</label>
+        </div>
+
+        <button type="submit" class="send-btn">Send Message</button>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+{% endblock %}

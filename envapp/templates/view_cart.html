@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/cart.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="page-grid" style="margin-top: 150px;">
+
+    <!-- ✅ CART SECTION -->
+    <div class="cart-section card-box">
+
+        <h2 class="section-title">🛒 Your Shopping Cart</h2>
+
+        <ul class="cart-list">
+            {% for item in cart_items %}
+            <li class="cart-item">
+                <div class="cart-left">
+                    <h3 class="cart-name">{{ item.product.name }}</h3>
+                    <p class="cart-qty">Quantity: x{{ item.quantity }}</p>
+                    <p class="cart-price">Rs.{{ item.product.price }}</p>
+                </div>
+
+                <div class="cart-right">
+                    <a class="btn-remove" href="{% url 'remove_from_cart' item.product.id %}">Remove</a>
+                    <!-- <a class="btn-buy" href="{% url 'buy_now' item.product.id %}">Buy Now</a> -->
+                     <a class="btn-buy" href="{% url 'add_to_cart' item.product.id %}">Add One More</a>
+
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+
+        <h3 class="cart-total">Total Price: Rs.{{ total_price }}</h3>
+
+        <div class="cart-back-btn">
+            <a href="{% url 'PRODUCTS' %}" class="btn-back">← Go Back</a>
+        </div>
+    </div>
+
+    <!-- ✅ ORDER FORM SECTION -->
+    <div class="order-section card-box">
+        <h2 class="section-title">📦 Place Your Order</h2>
+
+        <form method="post" action="{% url 'place_order' %}">
+
+
+            {% csrf_token %}
+
+            <label class="order-label">Shipping Address:</label>
+            <textarea name="address" class="order-input" required></textarea>
+
+            <label class="order-label">Payment Method:</label>
+            <select name="payment_method" class="order-input" required>
+                <option value="COD">Cash on Delivery</option>
+                <option value="UPI">UPI</option>
+                <option value="Card">Credit/Debit Card</option>
+            </select>
+
+            <button type="submit" class="btn-order" id="confirm-btn">
+            ✅ Confirm Order (Rs.{{ total_price }})
+        </button>
+
+
+                    <div id="loading-spinner" class="loading-spinner" style="display:none;">
+            <div class="spinner"></div>
+            <p>Processing your order... Please wait</p>
+        </div>
+
+        </form>
+    </div>
+
+</div>
+
+<script>
+document.querySelector("form").addEventListener("submit", function() {
+    // Disable the button to prevent double-click
+    const btn = document.getElementById("confirm-btn");
+    btn.disabled = true;
+    btn.textContent = "Processing...";
+
+    // Show spinner
+    document.getElementById("loading-spinner").style.display = "block";
+});
+</script>
+
+
+{% endblock %}

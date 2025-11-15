@@ -1,0 +1,207 @@
+/* ===============================
+   CONTACT PAGE – Elegant Gold Theme
+   =============================== */
+
+:root {
+  --primary: #bc8246;
+  --gray: #666;
+  --black: #111;
+  --white: #fff;
+}
+
+/* ===== Section Layout ===== */
+.contact-section {
+    margin-top: 40px;
+  padding: 80px 20px;
+  background: linear-gradient(180deg, #fff, #f9f9f9);
+}
+
+.contact-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* ===== Info Column ===== */
+.contact-info {
+  flex: 1 1 350px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  padding: 40px 35px;
+  text-align: left;
+  transition: all 0.3s ease;
+}
+
+.contact-info:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.contact-info h2 {
+  color: var(--black);
+  font-size: 2rem;
+  margin-bottom: 15px;
+  border-left: 5px solid var(--primary);
+  padding-left: 10px;
+  text-transform: uppercase;
+}
+
+.contact-info .intro {
+  color: var(--gray);
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.info-item i {
+  font-size: 1.4rem;
+  color: var(--primary);
+  margin-top: 4px;
+}
+
+.info-item h4 {
+  color: var(--black);
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.info-item p {
+  color: var(--gray);
+  font-size: 0.95rem;
+}
+
+/* ===== Social Links ===== */
+.social-links {
+  margin-top: 25px;
+}
+
+.social-links a {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background: var(--black);
+  color: var(--white);
+  border-radius: 50%;
+  text-align: center;
+  line-height: 40px;
+  margin-right: 10px;
+  transition: all 0.3s ease;
+  font-size: 1.1rem;
+}
+
+.social-links a:hover {
+  background: var(--primary);
+  transform: scale(1.1);
+}
+
+/* ===== Form Column ===== */
+.contact-form {
+    height: 560px;
+  flex: 1 1 400px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  padding: 40px 35px;
+  transition: all 0.3s ease;
+}
+
+.contact-form:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.contact-form h2 {
+  color: var(--black);
+  font-size: 2rem;
+  margin-bottom: 25px;
+  text-align: center;
+  border-bottom: 2px solid var(--primary);
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+/* ===== Input Styling ===== */
+.input-group {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.input-group input,
+.input-group textarea {
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  padding: 10px 5px;
+  font-size: 1rem;
+  background: transparent;
+  outline: none;
+  color: var(--black);
+  transition: all 0.3s ease;
+}
+
+.input-group label {
+  position: absolute;
+  left: 5px;
+  top: 10px;
+  color: var(--gray);
+  font-size: 1rem;
+  pointer-events: none;
+  transition: 0.3s ease;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+  border-bottom-color: var(--primary);
+}
+
+.input-group input:focus + label,
+.input-group input:valid + label,
+.input-group textarea:focus + label,
+.input-group textarea:valid + label {
+  top: -14px;
+  left: 0;
+  font-size: 0.9rem;
+  color: var(--primary);
+}
+
+/* ===== Button ===== */
+.send-btn {
+  background: var(--primary);
+  color: var(--white);
+  border: none;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: block;
+  margin: 0 auto;
+  font-weight: 600;
+}
+
+.send-btn:hover {
+  background: #a66d3e;
+  box-shadow: 0 0 15px rgba(188, 130, 70, 0.4);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .contact-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .contact-info, .contact-form {
+    width: 100%;
+  }
+}

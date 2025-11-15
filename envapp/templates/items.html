@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/items.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="items-section" style="margin-top: 80px;">
+    <h1 class="section-title">Our Collections</h1>
+    <p class="section-subtitle">Discover handcrafted pieces made with passion and care</p>
+
+    <!-- ====== Search & Filter Section ====== -->
+    <div class="filter-bar">
+        <form method="GET" class="search-form">
+            <input type="text" name="q" placeholder="Search for products..." value="{{ request.GET.q }}">
+            <select name="category">
+                <option value="">All Categories</option>
+                {% for cat in categories %}
+                <option value="{{ cat.id }}" {% if request.GET.category == cat.id|stringformat:"s" %}selected{% endif %}>
+                    {{ cat.name }}
+                </option>
+                {% endfor %}
+            </select>
+            <button type="submit">🔍 Search</button>
+        </form>
+    </div>
+
+    <!-- ====== Product Grid ====== -->
+    <div class="product-grid">
+        {% for i in item %}
+        <div class="product-card" 
+             data-name="{{ i.name }}" 
+             data-price="{{ i.price }}" 
+             data-description="{{ i.description }}" 
+             data-image="{% if i.image %}{{ i.image.url }}{% endif %}"
+             data-url="{% url 'add_to_cart' i.id %}">
+             
+            <div class="product-img">
+                {% if i.image %}
+                <img src="{{ i.image.url }}" alt="{{ i.name }}">
+                {% else %}
+                <div class="no-image">No Image Available</div>
+                {% endif %}
+                <!-- <div class="img-overlay">
+                    <button class="quick-view">🛒 Quick Add</button>
+                </div> -->
+            </div>
+
+            <div class="product-info">
+                <h3>{{ i.name }}</h3>
+                <p class="description">{{ i.description|truncatewords:15 }}</p>
+                <p class="price">₹ {{ i.price }}</p>
+                <div class="actions">
+                    <a href="{% url 'Update' i.id %}" class="btn-outline">Update</a>
+                    <a href="{% url 'Delete' i.id %}" class="btn-outline delete">Delete</a>
+                    <a href="{% url 'add_to_cart' i.id %}" class="btn-add">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p class="no-items">No items found. Try a different search or category.</p>
+        {% endfor %}
+    </div>
+
+    <!-- ====== Bottom Buttons ====== -->
+    <div class="bottom-actions">
+        <a href="{% url 'AddItem' %}" class="btn-add-new">+ Add New Product</a>
+        <!-- <a href="{% url 'logoutpage' %}" class="btn-logout">Logout</a> -->
+    </div>
+</div>
+
+<!-- ====== Quick View Modal ====== -->
+<div id="quickModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <img id="modal-img" src="" alt="Product Image">
+        <h2 id="modal-name"></h2>
+        <p id="modal-description"></p>
+        <h3 id="modal-price"></h3>
+        <a id="modal-add-btn" href="#" class="btn-add modal-btn">Add to Cart</a>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const modal = document.getElementById("quickModal");
+    const modalImg = document.getElementById("modal-img");
+    const modalName = document.getElementById("modal-name");
+    const modalDescription = document.getElementById("modal-description");
+    const modalPrice = document.getElementById("modal-price");
+    const modalAddBtn = document.getElementById("modal-add-btn");
+    const closeBtn = document.querySelector(".close");
+
+    document.querySelectorAll(".quick-view").forEach(button => {
+        button.addEventListener("click", e => {
+            const card = e.target.closest(".product-card");
+            modalName.textContent = card.dataset.name;
+            modalPrice.textContent = "₹ " + card.dataset.price;
+            modalDescription.textContent = card.dataset.description;
+            modalImg.src = card.dataset.image || "{% static 'images/no-image.png' %}";
+            modalAddBtn.href = card.dataset.url;
+
+            modal.style.display = "flex";
+            document.body.style.overflow = "hidden";
+        });
+    });
+
+    closeBtn.addEventListener("click", () => {
+        modal.style.display = "none";
+        document.body.style.overflow = "auto";
+    });
+
+    window.addEventListener("click", e => {
+        if (e.target === modal) {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+    });
+});
+</script>
+{% endblock %}

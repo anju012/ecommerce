@@ -1,0 +1,107 @@
+/* ====== REGISTER PAGE STYLING ====== */
+
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    background: linear-gradient(135deg, #f8f5f2, #f0ebe5);
+    padding: 20px;
+}
+
+.register-card {
+    background: rgba(255, 255, 255, 0.96);
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    padding: 45px 55px;
+    max-width: 450px;
+    width: 100%;
+    text-align: center;
+    transition: all 0.3s ease;
+    margin-top: 80px;
+}
+
+.register-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+.register-card h2 {
+    color: #bc8246;
+    font-size: 1.9rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.subtitle {
+    color: #666;
+    margin-bottom: 10px;
+    font-size: 0.85rem;
+}
+
+.register-form {
+    text-align: left;
+}
+
+.register-form p {
+    margin-bottom: 15px;
+}
+
+.register-form label {
+    color: #666;
+    font-weight: 400;
+    display: block;
+    margin-bottom: 3px;
+}
+
+.register-form input {
+    width: 100%;
+    height: 30px;
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.register-form input:focus {
+    border-color: #bc8246;
+    box-shadow: 0 0 0 3px rgba(188, 130, 70, 0.15);
+}
+
+.register-btn {
+    background-color: #bc8246;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    width: 100%;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.register-btn:hover {
+    background-color: #a56f3c;
+    transform: translateY(-2px);
+}
+
+.login-text {
+    margin-top: 20px;
+    font-size: 0.95rem;
+    color: #666;
+}
+
+.login-link {
+    color: #bc8246;
+    font-weight: 600;
+    text-decoration: none;
+    margin-left: 5px;
+    transition: color 0.3s ease;
+}
+
+.login-link:hover {
+    color: #a56f3c;
+}

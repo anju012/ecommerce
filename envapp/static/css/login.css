@@ -1,0 +1,149 @@
+/* General Page Styling */
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #fdfdfd, #f3f1ef);
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+/* Container */
+.login-container {
+    margin-top: 70px;
+  min-height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(120deg, #fff 50%, #bc8246 50%);
+}
+
+/* Card */
+.login-card {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  padding: 3rem 3.5rem;
+  width: 90%;
+  max-width: 420px;
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+  transition: transform 0.3s ease;
+}
+
+.login-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Title and Text */
+.login-card h2 {
+  font-size: 2rem;
+  color: #000;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.login-card p {
+  color: #666;
+  font-size: 0.95rem;
+  margin-bottom: 25px;
+}
+
+/* Form Fields */
+.form-fields p {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 1.2rem;
+  font-size: 0.9rem;
+}
+
+.form-fields label {
+  color: #333;
+  font-weight: 500;
+  margin-bottom: 0.4rem;
+}
+
+.form-fields input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: #fafafa;
+  font-size: 1rem;
+  color: #333;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-fields input:focus {
+  border-color: #bc8246;
+  box-shadow: 0 0 0 3px rgba(188, 130, 70, 0.2);
+  outline: none;
+}
+
+/* Login Button */
+.login-btn {
+  background: #bc8246;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 12px;
+  width: 100%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.login-btn:hover {
+  background: #a06c3a;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 15px rgba(188, 130, 70, 0.2);
+}
+
+/* Register Section */
+.register-section {
+  margin-top: 2rem;
+}
+
+.register-section h3 {
+  color: #666;
+  font-weight: 500;
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+}
+
+.register-btn {
+  text-decoration: none;
+  background: transparent;
+  border: 2px solid #bc8246;
+  color: #bc8246;
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.register-btn:hover {
+  background: #bc8246;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .login-card {
+    padding: 2.5rem 2rem;
+    max-width: 90%;
+  }
+
+  .login-card h2 {
+    font-size: 1.7rem;
+  }
+}

@@ -1,0 +1,197 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+    {% block content %}
+<!-- <a href="{% url  'PRODUCTS' %}"> PRODUCTS</a>  -->
+
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="https://i.pinimg.com/1200x/80/d2/6d/80d26d9e1dceb2e323a90492b7eb45f4.jpg" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Inspired by Nature</h5>
+        <p>Bring warmth and creativity into your space</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="https://i.pinimg.com/736x/e5/1f/87/e51f873a795762fa52507792fa8d18ab.jpg" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+         <h5>Elegance in Every Detail</h5>
+        <p>Shop handmade crafts that tell a story of passion and care</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="https://images.pexels.com/photos/27208616/pexels-photo-27208616/free-photo-of-ceramic-vases-for-soy-candles.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Handcrafted With Love</h5>
+        <p>Discover unique, artisanal pieces made just for you</p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<br>
+
+
+
+
+<div class="product-section">
+  <h2 class="section-title" >✨ Our Featured Products</h2>
+  <br>
+
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+
+    <div class="col">
+      <div class="card h-100">
+        <img src="https://demo.apollotheme.com/demo/leo_cool_stuff/85-large_default/printed-dress.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          
+          <h5 class="card-title">Kathy Rustic Plants</h5>
+          <p class="card-text">$25.50</p>
+          
+          <button class="addbtn"><a href="{% url 'add_to_cart' 7 %}" class="btn-product">Add to Cart</a></button>
+          
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card h-100">
+        <img src="https://demo.apollotheme.com/demo/leo_cool_stuff/138-large_default/printed-summer-dress.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Cozy Floral Dress</h5>
+          <p class="card-text">$30.50</p>
+          <button class="addbtn"><a href="{% url 'add_to_cart' 2 %}" class="btn-product">Add to Cart</a></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card h-100">
+        <img src="https://demo.apollotheme.com/demo/leo_cool_stuff/89-home_default/printed-summer-dress.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Saagwood Wooden Sofa</h5>
+          <p class="card-text">$150.50</p>
+          <button class="addbtn" ><a href="{% url 'add_to_cart' 1 %}" class="btn-product">Add to Cart</a></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card h-100">
+        <img src="https://demo.apollotheme.com/demo/leo_cool_stuff/154-home_default/printed-dress.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Linen Medium Pillow</h5>
+          <p class="card-text">$20.50</p>
+          <button class="addbtn"><a href="{% url 'add_to_cart' 4 %}" class="btn-product">Add to Cart</a></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card h-100">
+        <img src="https://demo.apollotheme.com/demo/leo_cool_stuff/98-large_default/blouse.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Ceramic Flower Pot</h5>
+          <p class="card-text">$50.00</p>
+          <button class="addbtn"><a href="{% url 'add_to_cart' 5 %}" class="btn-product">Add to Cart</a></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card h-100">
+        <img src="https://demo.apollotheme.com/demo/leo_cool_stuff/135-large_default/printed-summer-dress.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Spine Barstool</h5>
+          <p class="card-text">$32.50</p>
+          <button class="addbtn"><a href="{% url 'add_to_cart' 6 %}" class="btn-product">Add to Cart</a></button>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+  <br><br>
+  <h2 class="section-title" >✨ Trending Products</h2>
+  <br>
+
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+  <div class="col">
+    <div class="card h-100">
+      <img src="https://outstock.nextsky.co/media/catalog/product/cache/7385c20817d4149df73e39f37600b22e/6/_/6.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Jasmine and Vanilla Diffuser</h5>
+          <p class="card-text">$42.50</p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted"><span style="color:#bc8246;">★ ★ ★ ★ ★</span></small>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100">
+      <img src="https://outstock.nextsky.co/media/catalog/product/cache/7385c20817d4149df73e39f37600b22e/1/7/17-1.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Living Room Lighting</h5>
+        <p class="card-text">$18.50</p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted"><span style="color:#bc8246;">★ ★ ★ ★ </span></small>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100">
+      <img src="https://demo.apollotheme.com/demo/leo_cool_stuff/163-home_default/blouse.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Handmade Ceramic pots</h5>
+        <p class="card-text">$52.50</p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted"><span style="color:#bc8246;">★ ★ ★ ★ ★</span></small>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<br>
+
+<div class="content_background">
+  <div class="center">
+    <h4>Get in Touch With Us</h4>
+    <h1>How Can We Help You?</h1>
+    <p>
+      Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod.<br>
+      Typi non habent claritatem insitam est usus legentis in iis qui facit eorum claritatem.<br>
+      Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius.
+    </p>
+    <a class="btn5" href="#">DISCOVER NOW</a>
+  </div>
+</div>
+
+
+
+
+{% endblock %}
